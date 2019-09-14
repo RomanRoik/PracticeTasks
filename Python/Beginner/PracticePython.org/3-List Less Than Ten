@@ -1,0 +1,12 @@
+#task: https://www.practicepython.org/exercise/2014/02/15/03-list-less-than-ten.html
+def main():
+ ListLessThanTen()
+ 
+def ListLessThanTen():
+ a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+ print("Digits in list, that are less, than 5-> "+str([element for element in a if element < 5]))
+ print("Part two:")
+ number = int(input("Enter number "))
+ print("Digits in list,that are less than "+str(number)+" ->"+str([element for element in a if element < number]))
+ 
+main()
