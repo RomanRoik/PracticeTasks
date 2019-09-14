@@ -1,0 +1,25 @@
+#task: https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html
+#didn't make in 1 line python (look task 10)
+import random
+def main():
+ ListOverlap()
+
+def ListOverlap():
+  a=[]
+  b=[]
+  aLength = random.randint(1,20)
+  bLength = random.randint(1,20)
+  for i in range(0,aLength):
+   a.append(random.randint(1,20))
+  for i in range(0,bLength):
+   b.append(random.randint(1,20))
+  a.sort()
+  b.sort()
+  c = []
+  for i in a:
+   if i in b:
+    if i not in c:
+     c.append(i)
+  print("First list: "+str(a))
+  print("Second list: "+str(b))
+  print("Third list: "+str(c))
