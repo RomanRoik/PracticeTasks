@@ -1,0 +1,21 @@
+#task: https://www.practicepython.org/exercise/2014/02/05/02-odd-or-even.html
+def main():
+ OddOrEven()
+ 
+def OddOrEven():
+ digit = int(input("Enter digit: "))
+ if digit % 2 == 0:
+  print("Digit" + str(digit)+" is odd")
+  if digit % 4 == 0:
+    print("And it is multiple of 4")
+ else:
+  print("Digit" + str(digit)+" is even")
+ print("Part two:")
+ num = int(input("Enter number to check: "))
+ check = int(input("Enter digit to divide by: "))
+ if num % check == 0:
+  print(str(num)+" can be divided by "+str(check))
+ else:
+  print(str(num)+" can't be divided by "+str(check)
+  
+main()
