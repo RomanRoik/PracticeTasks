@@ -1,0 +1,22 @@
+#task: https://www.practicepython.org/exercise/2014/04/16/11-check-primality-functions.html
+
+def main():
+ CheckPrimalityFunctions()
+def CheckPrimalityFunctions():
+  digit = int(input("Enter digit to check: "))
+  prime = True
+  if digit<=0:
+   print("Digit isn't prime")
+  elif digit == 1:
+   print("Digit is prime")
+  else:
+   for i in range(2,digit):
+    if digit%i==0:
+     prime = False
+     break
+   if prime == True:
+    print("Digit is prime")
+   else:
+    print("Digit isn't prime")
+    
+main()
