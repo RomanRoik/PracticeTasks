@@ -1,0 +1,10 @@
+def main():
+ CharacterInput()
+def CharacterInput():
+#task 1: https://www.practicepython.org/exercise/2014/01/29/01-character-input.html
+ name = input("Enter your name ")
+ age = int(input("Enter your age "))
+ repeat = int(input("Enter number "))
+ for i in range(repeat):
+  print("Hello "+str(name)+" , you will be 100 years old in "+str(2019-age+100))
+main()
