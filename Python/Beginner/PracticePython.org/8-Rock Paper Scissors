@@ -1,0 +1,48 @@
+#task: https://www.practicepython.org/exercise/2014/03/26/08-rock-paper-scissors.html
+
+import os
+def main():
+ RockPaperScissors()
+
+def RockPaperScissors():
+ while True:
+  os.system('cls')
+  firstPlayerCommand = input("Choose Rock, Paper or Scissors: ")
+  os.system('cls')
+  secondPlayerCommand = input("Choose Rock, Paper or Scissors: ")
+  os.system('cls')
+
+  if firstPlayerCommand.lower() == "rock":
+   if secondPlayerCommand.lower() == "rock":
+    print("Draw!")
+   elif secondPlayerCommand.lower() == "paper":
+    print("Second player Won!")
+   elif secondPlayerCommand.lower() == "scissors":
+    print("First player Won!")
+   else:
+    continue
+
+  elif firstPlayerCommand.lower() == "paper":
+   if secondPlayerCommand.lower() == "paper":
+    print("Draw!")
+   elif secondPlayerCommand.lower() == "scissors":
+    print("Second player Won!")
+   elif secondPlayerCommand.lower() == "rock":
+    print("First player Won!")
+   else:
+    continue
+
+  elif firstPlayerCommand.lower() == "scissors":
+   if secondPlayerCommand.lower() == "scissors":
+    print("Draw!")
+   elif secondPlayerCommand.lower() == "rock":
+    print("Second player Won!")
+   elif secondPlayerCommand.lower() == "paper":
+    print("First player Won!")
+  else:
+    continue
+  choose=input("Do you want to exit? Press Y/y ")
+  if(choose =="Y" or choose =='y' or choose =="Yes"):
+   break
+   
+main()
