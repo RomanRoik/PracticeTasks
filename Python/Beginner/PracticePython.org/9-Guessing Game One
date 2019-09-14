@@ -1,0 +1,27 @@
+task: https://www.practicepython.org/exercise/2014/04/02/09-guessing-game-one.html
+
+import random
+def main():
+ GuessingGameOne()
+ 
+def GuessingGameOne():
+ numberToGuess = random.randint(1,9)
+ attempt = 1
+ while True:
+  guessing = input("Enter digit: ")
+  if guessing == "exit":
+   break
+  elif int(guessing) == numberToGuess:
+   decision = input("Congratulations! You guessed digit in " +str(attempt)+" attempts!")
+   numberToGuess = random.randint(1,9)
+   attempt = 1
+   os.system("cls")
+   continue
+  elif int(guessing) < numberToGuess:
+   print("The guessed number is higher")
+   attempt+=1
+  elif int(guessing) > numberToGuess:
+   print("The guessed number is lower")
+   attempt+=1
+   
+main()
