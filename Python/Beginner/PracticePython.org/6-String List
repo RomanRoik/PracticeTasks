@@ -1,0 +1,13 @@
+#task: https://www.practicepython.org/exercise/2014/03/12/06-string-lists.html
+
+def main():
+ StringList()
+ 
+def StringList():
+ s = input("Enter string to check: ")
+ if s.lower() == s[::-1].lower():
+  print(s +" is palindrom")
+ else:
+  print(s +" isn't palindrom")
+
+main()
