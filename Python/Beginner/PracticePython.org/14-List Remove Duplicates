@@ -1,0 +1,22 @@
+#task: https://www.practicepython.org/exercise/2014/05/15/14-list-remove-duplicates.html
+
+def main():
+ a = [1,5,10,15,25,1,5,11,20]
+ print("List without duplicates with a help of loops: "+str(ListRemoveDuplicatesLoop(a)))
+ print("List without duplicates with a help of set: "+str(ListRemoveDuplicatesSet(a)))
+def ListRemoveDuplicatesLoop(startList):
+ listDuplicates = [startList[0]]
+ for i in range(len(startList)):
+  found = False
+  for j in range(len(listDuplicates)):
+    if startList[i] == listDuplicates[j]:
+     found = True
+  if found == False:
+   listDuplicates.append(startList[i])
+  listDuplicates.sort()
+ return listDuplicates
+
+def ListRemoveDuplicatesSet(startList):
+ return set(startList)
+
+main()
