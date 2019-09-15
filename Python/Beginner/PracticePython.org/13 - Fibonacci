@@ -1,0 +1,16 @@
+#task: https://www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
+
+def main():
+ amount = int(input("Input amount of Fibonacci digits to generate: "))
+ fibonacciNumbers = []
+ for i in range(amount):
+  fibonacciNumbers.append(Fibonacci(i))
+ print("Fibonacci list: "+str(fibonacciNumbers))
+
+def Fibonacci(number):
+ if number<=1:
+  return number
+ else: 
+  return (Fibonacci(number-1)+Fibonacci(number-2))
+
+main()
