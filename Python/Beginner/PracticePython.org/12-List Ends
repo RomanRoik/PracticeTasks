@@ -1,0 +1,12 @@
+#task: https://www.practicepython.org/exercise/2014/04/25/12-list-ends.html
+
+def main():
+ ListEnds()
+
+def ListEnds():
+ a = [5, 10, 15, 20, 25]
+ b = [a[0],a[len(a)-1]]
+ print("First list: "+str(a))
+ print("Second list: "+str(b))
+
+main()
