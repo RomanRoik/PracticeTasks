@@ -1,0 +1,12 @@
+#task: https://www.practicepython.org/exercise/2014/05/21/15-reverse-word-order.html
+
+def main():
+ text = input("Enter string to revers: ")
+ print("Reversed string: "+str(ReverseWordOrder(text)))
+
+def ReverseWordOrder(text):
+ text = text.split()
+ text.reverse()
+ return ' '.join(text)
+
+main()
