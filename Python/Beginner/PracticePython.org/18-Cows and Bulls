@@ -1,0 +1,30 @@
+#task:https://www.practicepython.org/exercise/2014/07/05/18-cows-and-bulls.html
+
+import random
+
+def main():
+    game(4)
+
+def game(num_digits):
+    listnum = [random.randint(0,9) for n in range(num_digits)]
+    count=0
+    while True:
+        count+=1
+        print(" Guess: " + str(count))
+        print("Please guess " + str(num_digits) + "-digit number: ")
+        guess = [int(i) for i in str(input())]
+        if guess == listnum:
+            print("You won.")
+            print("It took you "+str(count)+" guess(es).")
+            break
+        else:
+            cow=0
+            bull=0
+            for x in range(0,num_digits):
+                if guess[x]==listnum[x]:
+                    cow += 1
+                elif guess[x] in listnum: # look if digit is somewhere else in the solution key (might already be a cow)
+                    bull += 1
+        print("Cows: "+str(cow)+" Bulls: "+str(bull))
+
+main()
