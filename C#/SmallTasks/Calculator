@@ -1,0 +1,358 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Calculator
+{
+    public partial class Form1 : Form
+    {
+        float a;
+        float b;
+        int operation = 0;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            button3.Text = "\u232B";
+            button5.Text = "7";
+            button6.Text = "8";
+            button7.Text = "9";
+            button8.Text = "\u00D7";
+            button9.Text = "4";
+            button10.Text = "5";
+            button11.Text = "6";
+            button12.Text = "-";
+            button13.Text = "1";
+            button14.Text = "2";
+            button15.Text = "3";
+            button16.Text = "+";
+            button18.Text = "0";
+            button19.Text = ",";
+            button20.Text = "=";
+            button21.Text = "%";
+            button22.Text = "\u221A";
+            button23.Text = "x\u00B2";
+            button24.Text = "1/x";
+
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "7";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "7";
+            }
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "8";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "8";
+            }
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "9";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "9";
+            }
+        }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "4";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "4";
+            }
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "5";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "5";
+            }
+        }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "6";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "6";
+            }
+        }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "1";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "1";
+            }
+        }
+
+        private void Button14_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "2";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "2";
+            }
+        }
+
+        private void Button15_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "3";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "3";
+            }
+        }
+
+        private void Button18_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "0")
+            {
+                textBox1.Text = "0";
+            }
+            else
+            {
+                textBox1.Text = textBox1.Text + "0";
+            }
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length >0) {
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "0")
+            {
+                try {
+                    a = float.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    label1.Text = a + "÷";
+                    operation = 1;
+
+                }
+                catch (FormatException)
+                {
+
+                }
+                }
+           
+          
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            
+            if (textBox1.Text != "0")
+            {
+                try
+                {
+                    a = float.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    label1.Text = a + "\u00D7";
+                    operation = 2;
+                }
+                catch (FormatException)
+                {
+
+
+                }
+            }
+            
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "0")
+            {
+                try
+                {
+                    a = float.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    label1.Text = a + "-";
+                    operation = 4;
+                }
+                catch(FormatException)
+                {
+
+                }
+            }
+            else textBox1.Text = "-";
+            
+        }
+
+        private void Button16_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "0")
+            {
+                try
+                {
+                    a = float.Parse(textBox1.Text);
+                    textBox1.Clear();
+                    label1.Text = a + "+";
+                    operation = 3;
+                }
+                catch(FormatException)
+                {
+
+                }
+            }
+            
+        }
+
+        private void Button20_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                b = float.Parse(textBox1.Text);
+                switch (operation)
+                {
+                    case 1:
+
+                        textBox1.Text = Convert.ToString(a / b);
+                        break;
+                    case 2:
+                        textBox1.Text = Convert.ToString(a * b);
+                        break;
+                    case 3:
+                        textBox1.Text = Convert.ToString(a + b);
+                        break;
+                    case 4:
+                        textBox1.Text = Convert.ToString(a - b);
+                        break;
+                }
+                label1.Text = "";
+                a = 0;
+                b = 0;
+                operation = 0;
+            }
+            catch (FormatException)
+            {
+
+            }
+        }
+
+        private void Button19_Click(object sender, EventArgs e)
+        {
+            string text = textBox1.Text + ",";
+            textBox1.Text = text;
+        }
+
+        private void Button17_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Contains('-')){
+                int  index = textBox1.Text.IndexOf('-');
+                string text = textBox1.Text;
+                string newtext = text.Remove(index,1);
+                textBox1.Text = newtext;
+                label1.Text = newtext;
+            }
+            else
+            {
+                string text = "-" + textBox1.Text;
+                textBox1.Text = text;
+                label1.Text = text;
+            }
+        }
+
+        private void Button22_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                var result = Math.Sqrt((double)Convert.ToInt32(textBox1.Text));
+                textBox1.Text = Convert.ToString(result);
+            }
+        }
+
+        private void Button23_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                var result = Math.Pow(Convert.ToDouble(textBox1.Text),2);
+                textBox1.Text = Convert.ToString(result);
+            }
+        }
+
+        private void Button24_Click(object sender, EventArgs e)
+        {
+                if (textBox1.Text.Length > 0)
+                {
+                    var result = Math.Pow(Convert.ToDouble(textBox1.Text), -1);
+                    textBox1.Text = Convert.ToString(result);
+                }
+            
+        }
+
+        private void Button21_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+            {
+                var result = (double)Convert.ToInt32(textBox1.Text);
+                result = result / 100;
+                textBox1.Text = Convert.ToString(result);
+            }
+        }
+    }
+}
