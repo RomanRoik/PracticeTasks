@@ -1,0 +1,327 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PlaneBombardment
+{
+    public partial class Form1 : Form
+    {
+        public PictureBox[][] InitializeCity()
+        {
+            PictureBox[] pictureboxcollection1 = { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6 };
+            PictureBox[] pictureboxcollection2 = { pictureBox7, pictureBox8, pictureBox9, pictureBox10, pictureBox11, pictureBox12 };
+            PictureBox[] pictureboxcollection3 = { pictureBox13, pictureBox14, pictureBox15, pictureBox16, pictureBox17, pictureBox18 };
+            PictureBox[] pictureboxcollection4 = { pictureBox19, pictureBox20, pictureBox21, pictureBox22, pictureBox23, pictureBox24 };
+            PictureBox[] pictureboxcollection5 = { pictureBox25, pictureBox26, pictureBox27, pictureBox28, pictureBox29, pictureBox30 };
+            PictureBox[] pictureboxcollection6 = { pictureBox31, pictureBox32, pictureBox33, pictureBox34, pictureBox35, pictureBox36 };
+            PictureBox[] pictureboxcollection7 = { pictureBox37, pictureBox38, pictureBox39, pictureBox40, pictureBox41, pictureBox42 };
+            PictureBox[] pictureboxcollection8 = { pictureBox43, pictureBox44, pictureBox45, pictureBox46, pictureBox47, pictureBox48 };
+            PictureBox[][] colectionofcollections = {pictureboxcollection1,pictureboxcollection2,pictureboxcollection3,pictureboxcollection4,
+                pictureboxcollection5,pictureboxcollection6,pictureboxcollection7,pictureboxcollection8};
+            return colectionofcollections;
+        }
+        public void MovePlane()
+        {
+            int moveright = Planepicture.Location.X;
+            moveright += speed;
+            int movebottom = 0;
+            if (moveright >= this.Right - 98)
+            {
+                moveright = this.Left - 230;
+                movebottom += 30;
+                Planepicture.Top = Planepicture.Top + movebottom;
+            }
+            Planepicture.Left = moveright;
+        }
+        public void MoveBomb(PictureBox[][] colectionofcollections)
+        {
+            int randomize;
+            bool destroyextra = false;
+            if (bombpicture.Visible == true)
+            {
+                bombpicture.Top += 3;
+                if (bombpicture.Top >= this.Bottom - 70)
+                {
+                    bombpicture.Visible = false;
+                }
+                for (int i = 0; i < 8; i++)
+                {
+                    for (int j = 0; j < 6; j++)
+                    {
+                        if (colectionofcollections[i][j].Visible == true)
+                        {// знайти середнє
+
+                            if (bombpicture.Bottom >= colectionofcollections[i][j].Top)
+                            {
+                                randomize = rand.Next(4); // шанс 25% знищити додаткову
+                                if(randomize == 0)
+                                {
+                                    destroyextra = true;
+                                }
+                                try
+                                {
+                                    if (bombpicture.Left >= colectionofcollections[i][j].Left && bombpicture.Left <= colectionofcollections[i][j].Right && bombpicture.Right <= colectionofcollections[i + 1][j].Right && bombpicture.Right >= colectionofcollections[i + 1][j].Left) // якщо на стику двох
+                                    {
+                                        if (!destroyextra)
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            colectionofcollections[i + 1][j].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                        else
+                                        {
+                                            try
+                                            {
+                                                colectionofcollections[i][j].Visible = false;
+                                                colectionofcollections[i + 1][j].Visible = false;
+                                                colectionofcollections[i][j - 1].Visible = false;
+                                                colectionofcollections[i + 1][j - 1].Visible = false;
+                                                bombpicture.Visible = false;
+                                            }
+                                            catch (IndexOutOfRangeException)
+                                            {
+                                                colectionofcollections[i][j].Visible = false;
+                                                colectionofcollections[i + 1][j].Visible = false;
+                                                bombpicture.Visible = false;
+                                            }
+                                        }
+                                    }
+                                    else if(bombpicture.Left>=colectionofcollections[i][j].Left && bombpicture.Right <= colectionofcollections[i][j].Right) // в межах однієї
+                                    {
+                                        if (!destroyextra)
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                        else
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            colectionofcollections[i][j + 1].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                    }
+                                    else if(bombpicture.Left<=colectionofcollections[i][j].Right && bombpicture.Left>=colectionofcollections[i][j].Left && bombpicture.Right >= colectionofcollections[i][j].Right)// якщо на праву сторону тайла
+                                    {
+                                        if (!destroyextra)
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                        else
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            colectionofcollections[i][j + 1].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                    }
+
+                                    else if(bombpicture.Left<=colectionofcollections[i][j].Left && bombpicture.Right>=colectionofcollections[i][j].Left && bombpicture.Right <= colectionofcollections[i][j].Right) // якщо на ліву сторону тайла
+                                    {
+                                        if (!destroyextra)
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                        else
+                                        {
+                                            colectionofcollections[i][j].Visible = false;
+                                            colectionofcollections[i][j + 1].Visible = false;
+                                            bombpicture.Visible = false;
+                                        }
+                                    }
+                                        
+                                }
+                                catch (IndexOutOfRangeException)
+                                {
+                                    colectionofcollections[i][j].Visible = false;
+                                    bombpicture.Visible = false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        public void RandomizeCity()
+        {
+            PictureBox[][] colectionofcollections = InitializeCity();
+            foreach(PictureBox[] obj in colectionofcollections)
+            {
+                foreach(PictureBox picture in obj)
+                {
+                    picture.Visible = true;
+                }
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                int draw = rand.Next(6);
+                for (int j = 0; j < draw; j++)
+                {
+                    colectionofcollections[i][j].Visible = false;
+                }
+            }
+        }
+        public void RestartGame()
+        {
+            RandomizeCity();
+            Planepicture.Top = -21;
+            Planepicture.Left = 1;
+            bombpicture.Visible = false;
+            bombpicture.Top = 71;
+            bombpicture.Left = 21;
+            label1.Enabled = true;
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+            radioButton3.Enabled = true;
+            button1.Enabled = true;
+
+        }
+        public int SelectSpeed()
+        {
+            if(radioButton1.Checked == true)
+            {
+                return 2;
+            }
+            if(radioButton2.Checked == true)
+            {
+                return 4;
+            }
+            if(radioButton3.Checked == true)
+            {
+                return 6;
+            }
+            return 0;
+        }
+        public bool CheckForWin(PictureBox[][] colectionofcolections)
+        {
+            bool win = true;
+            for(int i=0; i < 8; i++)
+            {
+                for(int j = 0; j < 6; j++)
+                {
+                    if(colectionofcolections[i][j].Visible == true)
+                    {
+                        win = false;
+                    }
+                }
+            }
+            return win;
+        }
+        public bool CheckForLose(PictureBox[][] colectionofcollections)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (colectionofcollections[i][j].Visible == true)
+                    {
+                        if (Planepicture.Bottom >= colectionofcollections[i][j].Top && Planepicture.Right >= colectionofcollections[i][j].Left)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+
+        }
+        Random rand = new Random();
+        int speed;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //picturebox painting
+            RandomizeCity();
+            
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            speed = SelectSpeed();
+            label1.Enabled = false;
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
+            radioButton3.Enabled = false;
+            button1.Enabled = false;
+            timer1.Interval = 1;
+            timer1.Start();
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            
+            MovePlane();
+            if (CheckForLose(InitializeCity()))
+            {
+                timer1.Stop();
+                DialogResult res = MessageBox.Show("You lost. Do you want to restart?","lose",MessageBoxButtons.YesNo);
+                if (res == DialogResult.No)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    RestartGame();
+                }
+            };
+            MoveBomb(InitializeCity());
+            if (CheckForWin(InitializeCity()))
+            {
+                timer1.Stop();
+                DialogResult res = MessageBox.Show("You won. Do you want to restart?", "Congratulations", MessageBoxButtons.YesNo);
+                if (res == DialogResult.No)
+                {
+                    this.Close();
+                } 
+                else
+                {
+                    RestartGame();
+                }
+            }
+
+           
+            
+        }
+
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (button1.Enabled == false)
+            {
+                if (bombpicture.Visible == false)
+                {
+                    bombpicture.Left = Planepicture.Left;
+                    bombpicture.Top = Planepicture.Top + 100;
+                    bombpicture.Visible = true;
+                }
+            }
+        }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+
+        {
+            if (e.KeyValue==(char)Keys.Return || e.KeyCode == Keys.Space)
+            {
+                if (button1.Enabled == false)
+                {
+                    if (bombpicture.Visible == false)
+                    {
+                        bombpicture.Left = Planepicture.Left;
+                        bombpicture.Top = Planepicture.Top + 100;
+                        bombpicture.Visible = true;
+                    }
+                }
+            }
+        }
+    }
+}
