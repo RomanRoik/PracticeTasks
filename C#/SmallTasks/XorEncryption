@@ -1,0 +1,115 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using System.Threading;
+namespace XOREnctyption
+{
+    public partial class Form1 : Form
+    {
+        Thread myThread;
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Text files (*.txt)|*.txt";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = fileDialog.FileName;
+                
+            }
+        }
+
+
+        private  void Encrypt()
+        {
+            
+            try
+            {
+                StreamReader reader = new StreamReader(textBox1.Text);
+                string fileText = reader.ReadToEnd();
+                byte[] textByte;
+                textByte = File.ReadAllBytes(textBox1.Text);
+                progressBar1.BeginInvoke((MethodInvoker)delegate ()
+                {
+                    this.progressBar1.Maximum = textByte.Length;
+                    this.progressBar1.Step = 1;
+                });
+                byte[] keyByte = new byte[textBox2.Text.Length];
+                byte[] encryptedString = new byte[fileText.Length];
+                for (int i = 0; i < textBox2.Text.Length; i++)
+                {
+                    keyByte[i] = Convert.ToByte(textBox2.Text[i]);
+                }
+
+                for (int i = 0; i < fileText.Length; i++)
+                {
+                    encryptedString[i] = (byte)(textByte[i] ^ keyByte[i % keyByte.Length]);
+                    progressBar1.BeginInvoke((MethodInvoker)delegate () { progressBar1.PerformStep(); });
+                    Thread.Sleep(1);
+                }
+                reader.Close();
+                StreamWriter writer = new StreamWriter(textBox1.Text);
+                for (int i = 0; i < encryptedString.Length; i++)
+                {
+                    writer.Write(encryptedString[i]);
+                }
+                if (radioButton1.Checked == true)
+                {
+                    MessageBox.Show("Encryption Succesfully done!");
+
+                }
+                else if (radioButton2.Checked == true)
+                {
+                    MessageBox.Show("Decryption Succesfully done!");
+                }
+                progressBar1.BeginInvoke((MethodInvoker)delegate () { progressBar1.Value = 0; });
+                writer.Close();
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show("Please, cancel current encryption!");
+            }
+        }
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text!="" && textBox2.Text!="" && (radioButton1.Checked == true || radioButton2.Checked == true))
+            {
+                myThread = new Thread(new ThreadStart(Encrypt));
+                myThread.Start();
+            }
+            
+
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            if (myThread.IsAlive)
+            {
+               
+                    myThread.Abort();
+                    if (radioButton1.Checked == true)
+                    {
+                        MessageBox.Show("Encryption was denied!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Decryption was denied!");
+                    }
+                    progressBar1.BeginInvoke((MethodInvoker)delegate () { progressBar1.Value = 0; });
+                
+            }
+
+        }
+    }
+}
