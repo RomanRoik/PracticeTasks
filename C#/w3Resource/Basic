@@ -1,0 +1,1164 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+namespace w3resourceBasic
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        
+            //1:Write a C# Sharp program to print Hello and your name in a separate line.
+            
+            Console.WriteLine("Enter your name");
+            string name = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"Hello: {name}");
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            // 2:Write a C# Sharp program to print the sum of two numbers.
+            Console.WriteLine("Enter first number");
+            try
+            {
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter second number");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine($"{n1} + {n2} = {n1 + n2}");
+                Console.WriteLine("Enter any key to continue...");
+                Console.ReadKey();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Incorrect input");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+
+
+
+            //3:Write a C# Sharp program to print the result of dividing two numbers.
+            Console.WriteLine("Enter first number");
+            try
+            {
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter second number");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine($"{n1} - {n2} = {n1 - n2}");
+                Console.WriteLine("Enter any key to continue...");
+                Console.ReadKey();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Incorrect input");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+
+
+
+            //6:Write a C# Sharp program to print the output of multiplication of three numbers which will be entered by the user.
+            try
+            {
+                Console.WriteLine("Enter first digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter second digit");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter third digit");
+                int n3 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine($"{n1} * {n2} * {n3} = {n1 * n2 * n3}");
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+            //7:Write a C# Sharp program to print on screen the output of adding, subtracting, multiplying and dividing of two numbers which will be entered by the user
+            Console.WriteLine("Enter first digit");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Enter second digit");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine($" {n1} + {n2} = {n1 + n2}\n {n1} - {n2} = {n1 - n2} \n {n1} * {n2} = {n1 * n2} \n {n1} / {n2} = {n1 / n2} \n {n1} mod {n2} = {n1 % n2}");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //8:Write a C# Sharp program that takes a number as input and print its multiplication table
+            Console.WriteLine("Enter digit to print multiplication table");
+            int n = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"{n} * {i} = {n * i}");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            //9: Write a C# Sharp program that takes four numbers as input to calculate and print the average.
+            try
+            {
+                Console.WriteLine("Enter first digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter second digit");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter third digit");
+                int n3 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter fourth digit");
+                int n4 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine($"The average of {n1} , {n2} , {n3} , {n4} is: {(n1 + n2 + n3 + n4) / 4}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input!");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+
+            //10 Write a C# Sharp program to that takes three numbers(x,y,z) as input and print the output of (x+y).z and x.y + y.z.
+            try
+            {
+                Console.WriteLine("Enter x");
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter y");
+                int y = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Enter z");
+                int z = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine($"Result of specified numbers {x}, {y}, {z}, (x+y)*z is {(x + y) * z} and x*y + y*z is {x * y + y * z}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input!");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+
+            //11  Write a C# Sharp program that takes an age (for example 20) as input and prints something as "You look older than 20"
+            try
+            {
+                int randomize;
+                Console.WriteLine("Enter your age");
+                int age = Convert.ToInt32(Console.ReadLine());
+                Random rand = new Random();
+                randomize = rand.Next(0, 2);
+                if (randomize == 0)
+                {
+                    Console.WriteLine($"Really? You look older than {age}");
+                }
+                else
+                {
+                    Console.WriteLine($"Really? You look younger than {age}");
+                }
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            //12  Write a C# program to that takes a number as input and display it four times in a row (separated by blank spaces),
+            and then four times in the next row, with no separation.You should do it two times
+            try
+            {
+                Console.WriteLine("Enter digit");
+                int n = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                for (int i = 0; i < 4; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        Console.WriteLine($"{n} {n} {n} {n}");
+                    }
+                    else Console.WriteLine($"{n}{n}{n}{n}");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error Input");
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+           // 13 Write a C# program that takes a number as input and then displays a rectangle of 3 columns wide and 5 rows tall using that digit
+            try
+            {
+                Console.WriteLine("Enter digit");
+                int n = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.WriteLine($"{n}{n}{n}");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error Input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //14 Write a C# program to convert from celsius degrees to Kelvin and Fahrenheit
+            try
+            {
+                Console.WriteLine("Enter the amount of celsius");
+                int c = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"Fahrenheit = {c * 9 / 5 + 32}");
+                Console.WriteLine($"Kelvin = {c + 273.15}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //15 Write a C# program remove specified a character from a non-empty string using index of a character
+            try
+            {
+                Console.WriteLine("Enter string");
+                string s = Console.ReadLine();
+                Console.WriteLine("Enter index");
+                int index = Convert.ToInt32(Console.ReadLine());
+                s = s.Remove(index, 1);
+                Console.WriteLine(s);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Wrong index");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+
+            //16 Write a C# program to create a new string from a given string where the first and last characters will change their positions. 
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            char[] arr = s.ToCharArray();
+            char first = arr[0];
+            arr[0] = arr[arr.Length - 1];
+            arr[arr.Length - 1] = first;
+            arr.ToString();
+            Console.WriteLine(arr);
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+
+
+            //17 Write a C# program to create a new string from a given string (length 1 or more ) with the first character added at the front and back.
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"Input string : {s}");
+            string s1 = s[0] + s + s[0];
+            Console.WriteLine(s1);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //18.Write a C# program to check two given integers and return true if one is negative and one is positive
+            try
+            {
+                Console.WriteLine("Enter first integer");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second integer");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                Console.WriteLine("Check if one is negative and one is positive: ");
+                if (n1 < 0 && n2 > 0 || n1 > 0 && n2 < 0)
+                {
+                    Console.WriteLine("True");
+                }
+                else Console.WriteLine("False");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+
+            //19 Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum.
+            try
+            {
+                Console.WriteLine("Enter first digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second digit");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                if (n1 == n2)
+                {
+                    Console.WriteLine($"{n1 * 3}");
+                }
+                else
+                {
+                    Console.WriteLine($"{n1 + n2}");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+
+
+            //20 Write a C# program to get the absolute value of the difference between two given numbers.
+            Return double the absolute value of the difference if the first number is greater than second number
+            try
+            {
+                Console.WriteLine("Enter first digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second digit");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                if (n1 > n2)
+                {
+                    Console.WriteLine($"{Math.Abs(n1 - n2) * 2}");
+                }
+                else Console.WriteLine($"{Math.Abs(n1 - n2)}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //21 Write a C# program to check the sum of the two given integers and return true if one of the integer is 20 or if their sum is 20.
+            try
+            {
+                Console.WriteLine("Enter first digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second digit");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                if (n1 + n2 == 20 || n1 == 20 || n2 == 20)
+                {
+                    Console.WriteLine("True");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Wrong input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //22.Write a C# program to check if an given integer is within 20 of 100 or 200.
+            try
+            {
+                Console.WriteLine("Enter digit");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                if (80 <= n1 && 120 >= n1 || 180 <= n1 && 220 >= n1)
+                {
+                    Console.WriteLine("True");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //23 Write a C# program to convert a given string into lowercase
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            s = s.ToLower();
+            Console.WriteLine(s);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //24.Write a C# program to find the longest word in a string.
+            Console.WriteLine("Enter sentense devided by spaces");
+            string s = Console.ReadLine();
+            string[] arr = s.Split(' ');
+            int max = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Length >= max)
+                {
+                    max = arr[i].Length;
+                }
+            }
+            Console.Write("Longest word: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i].Length == max)
+                {
+                    Console.Write(arr[i] + ' ');
+                }
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //25 Write a C# program to print the odd numbers from 1 to 99. Prints one number per line
+            for (int i = 1; i <= 99; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+
+            //26.Write a C# program to compute the sum of the first 500 prime numbers.
+            bool isprime;
+            int sum = 0, n = 0;
+            for (int i = 2; i < 2147483647; i++)
+            {
+
+                isprime = true;
+                for (int j = 2; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        isprime = false;
+                    }
+                }
+                if (isprime == true)
+                {
+                    n++;
+                    sum += i;
+                }
+                if (n == 500)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine(sum);
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            //27 Write a C# program to reverse the words of a sentence
+            Console.WriteLine("Enter sentence");
+            string s = Console.ReadLine();
+            string[] arr = s.Split(' ');
+            s = "";
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                s += arr[i] + " ";
+            }
+            Console.WriteLine(s);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //29.Write a C# program to find the size of a specified file in bytes.
+            Console.WriteLine("Enter path to file");
+            string path = Console.ReadLine();
+            StreamReader reader = new StreamReader(path);
+            string text = reader.ReadToEnd();
+            Console.WriteLine($"Size of file : {text.Length}");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //30.Write a C# program to convert a hexadecimal number to decimal number.
+            Console.WriteLine("Enter Hexadecimal number");
+            string s = Console.ReadLine();
+            char[] arr = new char[s.Length];
+            int sum = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                arr[i] = s[i];
+            }
+            for (int i = arr.Length - 1, j = 0; i >= 0; i--, j++)
+            {
+
+                switch (arr[i])
+                {
+                    case '0':
+                        {
+                            sum += 0 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '1':
+                        {
+                            sum += 1 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '2':
+                        {
+                            sum += 2 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '3':
+                        {
+                            sum += 3 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '4':
+                        {
+                            sum += 4 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '5':
+                        {
+                            sum += 5 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '6':
+                        {
+                            sum += 6 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '7':
+                        {
+                            sum += 7 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '8':
+                        {
+                            sum += 8 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case '9':
+                        {
+                            sum += 9 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'A':
+                        {
+                            sum += 10 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'B':
+                        {
+                            sum += 11 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'C':
+                        {
+                            sum += 12 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'D':
+                        {
+                            sum += 13 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'E':
+                        {
+                            sum += 14 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    case 'F':
+                        {
+                            sum += 15 * (int)Math.Pow(16, j);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Error input");
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
+                            Environment.Exit(0);
+                            break;
+                        }
+                }
+
+            }
+            Console.WriteLine(sum);
+            Console.ReadLine();
+
+
+            //31.Write a C# program to multiply corresponding elements of two arrays of integers
+            try
+            {
+                Console.WriteLine("Enter size of arrays");
+                int size = Convert.ToInt32(Console.ReadLine());
+                int[] arr1 = new int[size];
+                int[] arr2 = new int[size];
+                Console.WriteLine($"Enter {size} elements of 1st array");
+                for (int i = 0; i < size; i++)
+                {
+                    arr1[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Clear();
+                Console.WriteLine($"Enter {size} elements of 2nd array");
+                for (int i = 0; i < size; i++)
+                {
+                    arr2[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                Console.Clear();
+                Console.Write("Array1 : [");
+                for (int i = 0; i < size; i++)
+                {
+                    Console.Write(arr1[i] + " ");
+                }
+                Console.Write("]\n");
+                Console.Write("Array2 : [");
+                for (int i = 0; i < size; i++)
+                {
+                    Console.Write(arr2[i] + " ");
+                }
+                Console.Write("]\n");
+                Console.WriteLine("Multiply corresponding elements of two arrays:");
+                for (int i = 0; i < size; i++)
+                {
+                    Console.Write($"{arr1[i] * arr2[i]} ");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //32.Write a C# program to create a new string of four copies, taking last four characters from a given string. 
+            If the length of the given string is less than 4 return the original one.
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            string[] arr = s.Split(' ');
+            if (arr[arr.Length - 1].Length >= 4)
+            {
+                Console.WriteLine(arr[arr.Length - 1] + arr[arr.Length - 1] + arr[arr.Length - 1] + arr[arr.Length - 1]);
+            }
+            else
+            {
+                Console.WriteLine(s);
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //33.Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7
+            try
+            {
+                Console.WriteLine("Enter integer");
+                int n = Convert.ToInt32(Console.ReadLine());
+                if (n % 3 == 0 || n % 7 == 0)
+                {
+                    Console.WriteLine("True");
+
+                }
+                else Console.WriteLine("False");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //34.Write a C# program to check if a string starts with a specified word
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine("Enter word to check");
+            string word = Console.ReadLine();
+            string[] arr = s.Split(' ');
+            if (arr[0] == word)
+            {
+                Console.WriteLine("True");
+            }
+            else
+            {
+                Console.WriteLine("False");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //35.Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.
+            try
+            {
+                Console.WriteLine("Enter first number(<100)");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second number(>200)");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                if (n1 < 100 && n2 > 200)
+                {
+                    Console.WriteLine("True");
+                }
+                else
+                {
+                    Console.WriteLine("False");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+           // 36.Write a C# program to check if an integer (from the two given integers) is in the range -10 to 10. 
+            try
+            {
+                Console.WriteLine("Enter first integer");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second integer");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                if (n1 > -10 && n1 < 10 && n2 > -10 && n2 < 10)
+                {
+                    Console.WriteLine("True");
+                }
+                else
+                {
+                    Console.WriteLine("False");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //37.Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP".
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            if (s[1] == 'H' && s[2] == 'P')
+            {
+                s.Remove(1, 2);
+            }
+            Console.WriteLine(s);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+           // 38.Write a C# program to get a new string of two characters from a given string. 
+            The first and second character of the given string must be "P" and "H", so PHP will be "PH".
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            if (s[0] == 'P' && s[1] == 'H')
+            {
+                s = "PH";
+            }
+            Console.WriteLine(s);
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            //39.Write a C# program to find the largest and lowest values from three integer values.
+            try
+            {
+                Console.WriteLine("Enter first integer");
+                int n1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter second integer");
+                int n2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter third integer");
+                int n3 = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                int max = n1, min = n1;
+                int[] arr = new int[] { n1, n2, n3 };
+                for (int i = 1; i < arr.Length; i++)
+                {
+                    if (arr[i - 1] == max && arr[i] > arr[i - 1])
+                    {
+                        max = arr[i];
+                    }
+                    else if (arr[i - 1] == max && arr[i] < arr[i - 1])
+                    {
+                        min = arr[i];
+                    }
+                }
+                Console.WriteLine($"Max:{max}\nMin:{min}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Wrong Input");
+            }
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+
+            //40.Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same.
+            Console.WriteLine("Enter first integer");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter second integer");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            int diapazon1, diapazon2;
+            if (n1 > 20)
+            {
+                diapazon1 = n1 - 20;
+            }
+            else
+            {
+                diapazon1 = 20 - n1;
+            }
+            if (n2 > 20)
+            {
+                diapazon2 = n2 - 20;
+            }
+            else
+            {
+                diapazon2 = 20 - n2;
+            }
+            if (diapazon1 == diapazon2)
+            {
+                Console.WriteLine(0);
+            }
+            else if (diapazon1 < diapazon2)
+            {
+                Console.WriteLine(n1);
+            }
+            else Console.WriteLine(n2);
+            Console.WriteLine("Enter any key to continue...");
+            Console.ReadKey();
+
+            //41.Write a C# program to check if a given string contains ‘w’ character between 1 and 3 times.
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            int count = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == 'w')
+                {
+                    count++;
+                }
+            }
+            if (count >= 1 && count <= 3)
+            {
+                Console.WriteLine("True");
+            }
+            else Console.WriteLine("False");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+
+
+            //42.Write a C# program to create a new string where the first 4 characters will be in lower case.
+            If the string is less than 4 characters then make the whole string in upper case.
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            if (s.Length < 4)
+            {
+                s = s.ToUpper();
+            }
+            else
+            {
+                char[] arr = new char[s.Length];
+                for (int i = 0; i < s.Length; i++)
+                {
+                    arr[i] = s[i];
+                }
+                for (int i = 0; i < 4; i++)
+                {
+                    if (arr[i] >= 97 && arr[i] <= 122)
+                    {
+                        arr[i] = Convert.ToChar(Convert.ToInt32(arr[i]) - 32);
+                    }
+                }
+                s = new string(arr);
+            }
+            Console.WriteLine(s);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+
+           // 44.Write a C# program to create a new string of every other character (odd position) from the first position of a given string
+            Console.WriteLine("Enter string");
+            string s = Console.ReadLine();
+            char[] arr = new char[s.Length / 2];
+            for (int i = 0, j = 0; i < s.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    arr[j] = s[i];
+                    j++;
+                }
+            }
+            string s2 = new string(arr);
+            Console.WriteLine(s2);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+           // 45.Write a C# program to count a specified number in a given array of integers.
+            try
+            {
+                Console.WriteLine("Enter integer");
+                int digit = Convert.ToInt32(Console.ReadLine());
+                Random rand = new Random();
+                int[] arr = new int[rand.Next(10, 20)];
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = rand.Next(100);
+                }
+                Console.WriteLine($"Number of {digit} present in the said array: {arr[digit]} ");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Selected index dont exists");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //46.Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more.
+            Console.WriteLine("Enter digit");
+            int digit = Convert.ToInt32(Console.ReadLine());
+            Random rand = new Random();
+            bool check = false;
+            int[] arr = new int[rand.Next(10, 20)];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(30);
+                if (i == 0 || i == arr.Length - 1)
+                {
+                    if (arr[i] == digit)
+                    {
+                        check = true;
+                    }
+                }
+            }
+            Console.WriteLine(check);
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //47.Write a C# program to compute the sum of all the elements of an array of integers.
+            Random rand = new Random();
+            int[] arr = new int[rand.Next(20, 30)];
+            int sum = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(50);
+                Console.Write(arr[i] + " ");
+                sum += arr[i];
+            }
+
+            Console.WriteLine($"\nSum:{sum}");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //48.Write a C# program to check if the first element and the last element are equal of an array of integers and the length is 1 or more. 
+            Random rand = new Random();
+            int[] arr = new int[rand.Next(20, 30)];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(30);
+                Console.Write(arr[i] + " ");
+            }
+            if (arr[0] == arr[arr.Length - 1])
+            {
+                Console.WriteLine("\nFirst and last elements are equall");
+            }
+            else
+            {
+                Console.WriteLine("\nFirst and last elements arent equall");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //49.Write a C# program to check if the first element or the last element of the two arrays ( length 1 or more) are equal.
+            Random rand = new Random();
+            int size = rand.Next(20, 30);
+            int[] arr1 = new int[size];
+            int[] arr2 = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                arr1[i] = rand.Next(15);
+                arr2[i] = rand.Next(15);
+            }
+            Console.Write("First array: ");
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(arr1[i] + " ");
+            }
+            Console.Write("\nSecond array: ");
+            for (int i = 0; i < size; i++)
+            {
+                Console.Write(arr2[i] + " ");
+            }
+            if (arr1[0] == arr2[0] || arr1[size - 1] == arr2[size - 1])
+            {
+                Console.WriteLine("\nTrue");
+            }
+            else Console.WriteLine("\nFalse");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //50.Write a C# program to rotate an array (length 3) of integers in left direction.
+            Random rand = new Random();
+            int[] arr = new int[3];
+            Console.Write("First array: ");
+            for (int i = 0; i < 3; i++)
+            {
+                arr[i] = rand.Next(10);
+                Console.Write(arr[i] + " ");
+            }
+            Console.Write("\nArray after reversing: ");
+            int temp = arr[0];
+            for (int i = 0; i < 2; i++)
+            {
+                arr[i] = arr[i + 1];
+                Console.Write(arr[i] + " ");
+            }
+            arr[2] = temp;
+            Console.Write(arr[2]);
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
+
+
+            //51.Write a C# program to get the larger value of an array of integers
+            Random rand = new Random();
+            int[] arr = new int[rand.Next(10, 20)];
+            int max = -1;
+            Console.Write("Array: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(30);
+                Console.Write(arr[i] + " ");
+                if (arr[i] > max)
+                {
+                    max = arr[i];
+                }
+            }
+            Console.WriteLine($"\nMax digit: {max}");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //52.Write a c# program to create a new array of lenght containing the middle elemens of three arrays(each length 3) of integers
+            int[] arr1 = new int[3];
+            int[] arr2 = new int[3];
+            int[] arr3 = new int[3];
+            int[] arr4 = new int[3];
+            Random rand = new Random();
+            for (int i = 0; i < 3; i++)
+            {
+                arr1[i] = rand.Next(10);
+                arr2[i] = rand.Next(10);
+                arr3[i] = rand.Next(10);
+            }
+            arr4[0] = arr1[1];
+            arr4[1] = arr2[1];
+            arr4[2] = arr3[1];
+            Console.Write("First array:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write(arr1[i] + " ");
+            }
+            Console.Write("\nSecond array:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write(arr2[i] + " ");
+            }
+            Console.Write("\nThird array:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write(arr3[i] + " ");
+            }
+            Console.Write("\nNew array:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write(arr4[i] + " ");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+           // 53.Write a C# programme to check if an array contains an odd number
+            Random rand = new Random();
+            bool odd = false;
+            int[] arr = new int[rand.Next(1, 5)];
+            Console.Write("Array: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = rand.Next(30);
+                Console.Write(arr[i] + " ");
+                if (arr[i] % 2 == 0)
+                {
+                    odd = true;
+                }
+            }
+            Console.Write("\nCheck if an array contains an odd number: ");
+            if (odd == true)
+            {
+                Console.WriteLine("True");
+            }
+            else Console.WriteLine("False");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+            //54.Write a C# programme to get the century from a year
+            try
+            {
+                Console.WriteLine("Enter year");
+                int year = Convert.ToInt32(Console.ReadLine());
+                if (year % 100 == 0)
+                {
+                    Console.WriteLine($"Century: {year / 100}");
+                }
+                else
+                {
+                    if (year > 0)
+                    {
+                        Console.WriteLine($"Century: {year / 100 + 1}");
+                    }
+                    else
+                        Console.WriteLine($"Century: {year / 100 - 1}");
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error input");
+            }
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+
+
+        }
+    }
+}
