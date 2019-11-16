@@ -1,0 +1,74 @@
+/*Your task is to sort a given string. Each word in the string will contain a single number.
+     * This number is the position the word should have in the result.
+
+    # Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+
+        If the input string is empty, return an empty string. 
+        The words in the input String will only contain valid consecutive numbers.
+
+            "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+    "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+    ""  -->  ""
+        */
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeWarsStringSort
+{
+    
+
+    class Program
+    {
+        public static Dictionary<int,string> Order(string[] arr)
+        {
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                foreach (char symbol in arr[i])
+                {
+                    if (symbol >= 49 && symbol <= 57)
+                    {
+                        dict.Add(Convert.ToInt32(symbol), arr[i]);
+                        break;
+                    }
+                }
+            }
+            return dict;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter string:");
+            String s = Console.ReadLine();
+            string[] sarr = s.Split(' ');
+            Dictionary<int, string> info = Order(sarr);
+            
+            while (info.Count > 0)
+            {
+                for(int i = 49; i < 57; i++)
+                {
+                    if (info.ContainsKey((i)))
+                    {
+                        foreach(KeyValuePair<int,string> item in info)
+                        {
+                            if(item.Key == i)
+                            {
+                                Console.Write(item.Value + " ");
+                                
+                            }
+                        }
+                        info.Remove(i);
+                    }
+                }
+            }
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+        }
+    }
+}
